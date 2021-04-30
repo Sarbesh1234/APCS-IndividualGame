@@ -2,7 +2,7 @@
 public class Actor {
 
 	public Actor() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Yo ash can you see this");
 	}
 
 }
