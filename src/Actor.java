@@ -1,8 +1,12 @@
 
-public class Actor {
+public abstract class Actor extends javafx.scene.image.ImageView {
 
 	public Actor() {
-		System.out.println("Yo ash can you see this");
+		
 	}
+	
+	public abstract void act(long now);
+	
+	
 
 }
