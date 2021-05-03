@@ -1,30 +1,26 @@
-import java.io.IOException;
+
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Ball extends Actor{
 	private int dx;
 	private int dy;
+	private ImageView view;
 	public Ball(int d, int b) {
 		dx = d;
-		dy = b;
-		String path = null;
-		try {
-			path = getClass().getClassLoader().getResources("resources/ball.jpg").toString();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Image img = new Image(path);
+		dy = b;	
+		setImage(new Image(getClass().getClassLoader().getResource("resources/ball.jpg").toString()));
+
 	}
 
 	@Override
 	public void act(long now) {
 		move(dx,dy);
-		if (dx > getWidth()||dx<0 ) {
+		if (getX() > getWorld().getWidth()-getWidth()||getX()<0 ) {
 			dx = -dx;
 		}
-		if (dy > getHeight()||dy<0 ) {
+		if (getY() > getWorld().getHeight()-getHeight()||getY()<0 ) {
 			dy = -dy;
 		}
 	}

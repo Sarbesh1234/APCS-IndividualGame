@@ -15,12 +15,19 @@ public class Game extends Application {
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("Ball");
 		BorderPane rootNode = new BorderPane();
-		BallWorld gu = new BallWorld();
-		rootNode.setCenter(gu);
-		Scene lsci = new Scene(rootNode);
-		Ball bum = new Ball(1,1);
-		gu.add(bum);
-		start(stage);
+		BallWorld world = new BallWorld();
+		Ball ball = new Ball(5,5);
+		ball.setFitWidth(100);
+		ball.setFitHeight(100);
+		world.add(ball);
+		world.setPrefSize(300,500);
+		world.start();
+		rootNode.setCenter(world);
+		Scene scene = new Scene(rootNode);
+		stage.setScene(scene);
+		stage.show();
+		
+		
 	}
 
 }
