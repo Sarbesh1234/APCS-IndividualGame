@@ -32,7 +32,7 @@ public abstract class Actor extends javafx.scene.image.ImageView {
 		ArrayList<A> arr = new ArrayList<A>();
 		ObservableList<Node> nodesList = getWorld().getChildren();
 		for(Node node: nodesList) {
-			if(cls.isInstance(node) && this != node && node.intersects(this.getBoundsInParent())){
+			if(cls.isInstance(node) && this != node && node.getBoundsInParent().intersects(this.getBoundsInParent())){
 				arr.add((A) node);
 			}
 		}
@@ -43,7 +43,7 @@ public abstract class Actor extends javafx.scene.image.ImageView {
 	public <A extends Actor> A getOneIntersectingObject(java.lang.Class<A> cls) {
 		ObservableList<Node> nodesList = getWorld().getChildren();
 		for(Node node: nodesList) {
-			if(cls.isInstance(node) && this != node && node.intersects(this.getBoundsInParent())){
+			if(cls.isInstance(node) && this != node && node.getBoundsInParent().intersects(this.getBoundsInParent())){
 				return (A) node;
 			}
 		}
