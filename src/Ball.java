@@ -46,5 +46,11 @@ public class Ball extends Actor{
 		}
 			
 	}
-
+	public void reduceScore() {
+		if (getY()==0) {
+			BallWorld y = (BallWorld)getWorld();
+			Score x = y.getScore();
+			y+=1000;
+		}
+	}
 }
