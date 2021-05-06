@@ -16,14 +16,6 @@ public class Ball extends Actor{
 	@Override
 	public void act(long now) {
 		move(dx,dy);
-		/*if (getX() > getWorld().getWidth()-getWidth()||getX()<0 ) {
-			dx = -dx;
-		}else if(getY() > getWorld().getHeight()-getHeight()||getY()<0) {
-			dy = -dy;
-		}else if(this.getIntersectingObjects(Paddle.class) != null) {
-			dy = -dy;
-		}
-		*/
 		if (getX() > getWorld().getWidth()-getWidth()||getX()<0 ) {
 			dx = -dx;
 		}
@@ -39,16 +31,20 @@ public class Ball extends Actor{
 		if(this.getIntersectingObjects(Paddle.class).size() ==0) {
 			check = true;
 		}
-		/*
-		if (getY() > getWorld().getHeight()-getHeight()||getY()<0 ) {
-			dy = -dy;
+		
+		if(this.getIntersectingObjects(Brick.class).size() != 0) {
+			Actor a = getIntersectingObjects(Brick.class).get(0);
+			if(getX()>a.getX() && getX()<a.getX()+getWidth()) {
+				dy = -dy;
+			}else if(getY()>a.getY() && getY()<a.getY()+getHeight()) {
+				dx = -dx;
+			}else {
+				dx = -dx;
+				dy = -dy;
+			}
+			getWorld().remove(a);
 		}
-		if(this.getIntersectingObjects(Paddle.class).size() != 0)  {
-			dy = -dy;
-		}*/
-		
-		
-		
+			
 	}
 
 }

@@ -20,8 +20,11 @@ public abstract class World extends Pane {
 			public void handle(long now) {
 				act(now);
 				ObservableList<Node> nodes = getChildren();
-				for(Node n: nodes) {
+				/*for(Node n: nodes) {
 					((Actor) n).act(now);
+				}*/
+				for(int i=0;i<nodes.size();i++) {
+					((Actor) nodes.get(i)).act(now);
 				}
 				
 			}
