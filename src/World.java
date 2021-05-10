@@ -24,7 +24,10 @@ public abstract class World extends Pane {
 					((Actor) n).act(now);
 				}*/
 				for(int i=0;i<nodes.size();i++) {
+					Node n = nodes.get(i);
+					if (n instanceof Actor) {
 					((Actor) nodes.get(i)).act(now);
+					}
 				}
 				
 			}
