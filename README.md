@@ -1,29 +1,11 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Things each person did
 
-### What is this repository for? ###
+Sarbesh Sankar - Finished implementing world class methods,actor classes, finished animations,added paddle,keyboard,and mouse input,finished person 1 brick class,fixed bugs and issues with person 3,minor edits overall
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-### How do I get set up? ###
+Ashwin Nagarajan - Added ball world, and game class, helped with mouse input and keyboard, finished person 2 brick class, worked on person 3 ball bounce improvement,minor edits overall
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+Kriti Bhatia - nothing
