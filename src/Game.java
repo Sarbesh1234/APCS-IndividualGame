@@ -22,18 +22,18 @@ public class Game extends Application {
 		BallWorld world = new BallWorld();
 		Ball ball = new Ball(5,5);
 		Paddle paddle = new Paddle();
-		ball.setFitWidth(100);
-		ball.setFitHeight(100);
-		paddle.setFitWidth(100);
-		paddle.setFitHeight(100);
-		paddle.setX(0);
-		paddle.setY(world.getHeight()/2);
+		ball.setFitWidth(25);
+		ball.setFitHeight(25);
+		//paddle.setFitWidth(20);
+		//paddle.setFitHeight(20);
+		paddle.setX(250);
+		paddle.setY(250);
 		Brick brick = new Brick();
 		brick.setFitWidth(100);
 		brick.setFitHeight(100);
 		brick.setX(200);
 		brick.setY(200);
-		world.setOnMouseMoved(new EventHandler<MouseEvent>() {
+		rootNode.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				paddle.setX(event.getX());	
