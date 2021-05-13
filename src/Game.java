@@ -7,8 +7,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Game extends Application {
 
+public class Game extends Application {
+	Scene scene;
 	public Game() {
 		
 	}
@@ -17,49 +18,32 @@ public class Game extends Application {
 	}
 	@Override
 	public void start(Stage stage) throws Exception {
-		stage.setTitle("Ball");
+		stage.setTitle("BallBounce");
+		Menu menu = new Menu(this);
 		BorderPane rootNode = new BorderPane();
-		BallWorld world = new BallWorld();
-		Ball ball = new Ball(5,5);
-		Paddle paddle = new Paddle();
-		ball.setFitWidth(25);
-		ball.setFitHeight(25);
-		//paddle.setFitWidth(20);
-		//paddle.setFitHeight(20);
-		paddle.setX(250);
-		paddle.setY(250);
-		Brick brick = new Brick();
-		brick.setFitWidth(100);
-		brick.setFitHeight(100);
-		brick.setX(200);
-		brick.setY(200);
-		rootNode.setOnMouseMoved(new EventHandler<MouseEvent>() {
-			@Override
-			public void handle(MouseEvent event) {
-				paddle.setX(event.getX());	
-			}
-		});
-		world.setOnKeyPressed(new EventHandler<KeyEvent>() {
-			public void handle(KeyEvent event) {
-				world.addKey(event.getCode());
-			}
-		});
-		world.setOnKeyReleased(new EventHandler<KeyEvent>() {
-			public void handle(KeyEvent event) {
-				world.removeKey(event.getCode());
-			}
-		});
-		world.add(brick);
-		world.add(ball);
-		world.add(paddle);
-		world.start();
-		rootNode.setCenter(world);
-		Scene scene = new Scene(rootNode,500,500);
+		rootNode.setCenter(menu);
+		scene = new Scene(rootNode,500,500);
 		stage.setScene(scene);
 		stage.show();
-		world.requestFocus();
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER) {
+					BallWorld world = new BallWorld();
+					world.start();
+					rootNode.setCenter(world);
+					stage.setScene(scene);
+					stage.show();
+					world.requestFocus();
+				}
+				
+			}
+		});
+		
 		
 		
 	}
+	
+	
 
 }
