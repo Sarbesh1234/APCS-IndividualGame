@@ -15,14 +15,32 @@ public class Paddle extends Actor {
 
 	@Override
 	public void act(long now) {
-		if(getWorld().checkKey(KeyCode.LEFT)) {
-			this.setX(this.getX() - 10);
-		}
-		if(getWorld().checkKey(KeyCode.RIGHT)) {
-			this.setX(this.getX() + 10);
-		}
-		old = new2;
-		new2 = this.getX();
+		
+			if(getWorld().checkKey(KeyCode.LEFT)) {
+				if(getX()>10) {
+					this.setX(this.getX()-10);
+				}
+			}
+			if(getWorld().checkKey(KeyCode.RIGHT)) {
+				if(getX() + getWidth()<getWorld().getWidth()-10) {
+					this.setX(this.getX() + 10);
+				}
+			}
+			/*
+			if(getWorld().checkKey(KeyCode.UP)) {
+				if(getY()>10) {
+					this.setY(this.getY() - 10);
+				}
+			}
+			
+			if(getWorld().checkKey(KeyCode.DOWN)) {
+				if(getY()+getHeight()<getWorld().getHeight()-10) {
+					this.setY(this.getY() + 10);
+				}
+			}*/
+			
+			old = new2;
+			new2 = this.getX();
 	}
 	
 	/*public int isPaddleMoving() {

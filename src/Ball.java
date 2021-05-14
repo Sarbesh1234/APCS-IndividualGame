@@ -25,10 +25,12 @@ public class Ball extends Actor{
 		if(getY() > getWorld().getHeight()-getHeight()) {
 			dy = -dy;
 			BallWorld w = (BallWorld)getWorld();
-			w.getScore().setScore(w.getScore().getScore()-1000);
+			w.getScore().setScore(w.getScore().getScore()-1);
 		}
 		if (getY()<0) {
 			dy = -dy;
+			BallWorld w = (BallWorld)getWorld();
+			w.getScore().setScore(w.getScore().getScore()+1);
 		}
 		/*
 		if(this.getIntersectingObjects(Paddle.class).size() !=0 && check == true) {
@@ -51,7 +53,7 @@ public class Ball extends Actor{
 			}
 			getWorld().remove(a);
 			BallWorld w = (BallWorld)getWorld();
-			w.getScore().setScore(w.getScore().getScore()+100);
+			w.getScore().setScore(w.getScore().getScore()+1);
 		}
 		/*
 		if(this.getIntersectingObjects(Paddle.class).size()!=0) {
