@@ -29,7 +29,7 @@ public class BallWorld extends World {
 		brick.setY(200);
 		//add(brick);
 		add(ball);
-		add(ball2);
+		//add(ball2);
 		add(paddle);
 		/*this.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
@@ -52,8 +52,10 @@ public class BallWorld extends World {
 	}
 	@Override
 	public void act(long now) {
+		
 	}
 	public Score getScore() {
 		return score;
 	}
+	
 }

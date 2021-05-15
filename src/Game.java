@@ -25,11 +25,12 @@ public class Game extends Application {
 		scene = new Scene(rootNode,500,500);
 		stage.setScene(scene);
 		stage.show();
+		BallWorld world = new BallWorld();
+		Level2 lvl2 = new Level2();
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.ENTER) {
-					BallWorld world = new BallWorld();
 					world.start();
 					rootNode.setCenter(world);
 					stage.setScene(scene);
@@ -39,8 +40,20 @@ public class Game extends Application {
 				
 			}
 		});
+		if(world.getScore().getScore() == 25) {
+			world.stop();
+			rootNode.setCenter(lvl2);
+			stage.setScene(scene);
+			stage.show();
+			world.requestFocus();
+		}
 		
 		
+		
+	}
+	
+	public Scene getScene() {
+		return scene;
 		
 	}
 	
