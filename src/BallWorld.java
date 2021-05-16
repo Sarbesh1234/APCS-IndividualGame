@@ -4,7 +4,9 @@ import javafx.scene.input.MouseEvent;
 
 public class BallWorld extends World {
 	public Score score;
-	public BallWorld() {
+	public Game g;
+	public BallWorld(Game g) {
+		this.g = g;
 		score = new Score();
 		score.setX(50);
 		score.setY(50);
@@ -52,7 +54,12 @@ public class BallWorld extends World {
 	}
 	@Override
 	public void act(long now) {
-		
+		if(score.getScore() == 25) {
+			g.getBallWorld().stop();
+			g.getLevel2().start();
+			g.getBorderPane().setCenter(g.getLevel2());
+			g.getLevel2().requestFocus();
+		}
 	}
 	public Score getScore() {
 		return score;

@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 public class Game extends Application {
 	Scene scene;
+	Level2 lvl2;
+	BallWorld world;
+	BorderPane rootNode;
 	public Game() {
 		
 	}
@@ -20,41 +23,45 @@ public class Game extends Application {
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("BallBounce");
 		Menu menu = new Menu(this);
-		BorderPane rootNode = new BorderPane();
+		rootNode = new BorderPane();
 		rootNode.setCenter(menu);
 		scene = new Scene(rootNode,500,500);
 		stage.setScene(scene);
 		stage.show();
-		BallWorld world = new BallWorld();
-		Level2 lvl2 = new Level2();
+		world = new BallWorld(this);
+		lvl2 = new Level2();
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.ENTER) {
 					world.start();
 					rootNode.setCenter(world);
-					stage.setScene(scene);
-					stage.show();
+					//stage.setScene(scene);
+					//stage.show();
 					world.requestFocus();
 				}
 				
 			}
 		});
-		if(world.getScore().getScore() == 25) {
-			world.stop();
-			rootNode.setCenter(lvl2);
-			stage.setScene(scene);
-			stage.show();
-			world.requestFocus();
-		}
 		
 		
 		
 	}
 	
 	public Scene getScene() {
-		return scene;
-		
+		return scene;	
+	}
+	
+	public Level2 getLevel2() {
+		return lvl2;
+	}
+	
+	public BorderPane getBorderPane() {
+		return rootNode;
+	}
+	
+	public BallWorld getBallWorld() {
+		return world;
 	}
 	
 	
