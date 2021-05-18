@@ -14,6 +14,11 @@ public class Ball extends Actor{
 		setImage(new Image(getClass().getClassLoader().getResource("resources/ball2.png").toString()));
 
 	}
+	
+	public void changeMove(int dx,int dy) {
+		this.dx = dx;
+		this.dy = dy;
+	}
 
 	@Override
 	public void act(long now) {

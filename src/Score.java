@@ -11,7 +11,7 @@ public class Score extends Text {
 	}
 	
 	public void updateDisplay() {
-		this.setText(Integer.toString(score));
+		this.setText(Integer.toString(score) + "/25");
 	}
 	public int getScore() {
 		return score;

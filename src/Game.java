@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 public class Game extends Application {
 	Scene scene;
 	Level2 lvl2;
+	Level3 lvl3;
 	BallWorld world;
 	BorderPane rootNode;
 	public Game() {
@@ -30,6 +31,7 @@ public class Game extends Application {
 		stage.show();
 		world = new BallWorld(this);
 		lvl2 = new Level2();
+		lvl3 = new Level3();
 		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
@@ -56,6 +58,9 @@ public class Game extends Application {
 		return lvl2;
 	}
 	
+	public Level3 getLevel3() {
+		return lvl3;
+	}
 	public BorderPane getBorderPane() {
 		return rootNode;
 	}
