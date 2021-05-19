@@ -14,6 +14,7 @@ public class Game extends Application {
 	Level3 lvl3;
 	BallWorld world;
 	BorderPane rootNode;
+	GameOver g;
 	public Game() {
 		
 	}
@@ -24,6 +25,7 @@ public class Game extends Application {
 	public void start(Stage stage) throws Exception {
 		stage.setTitle("BallBounce");
 		Menu menu = new Menu(this);
+		g = new GameOver();
 		rootNode = new BorderPane();
 		rootNode.setCenter(menu);
 		scene = new Scene(rootNode,500,500);
@@ -52,6 +54,10 @@ public class Game extends Application {
 	
 	public Scene getScene() {
 		return scene;	
+	}
+	
+	public GameOver getGameOver() {
+		return g;
 	}
 	
 	public Level2 getLevel2() {

@@ -4,7 +4,6 @@ public class Level3 extends Level2 {
 
 	Ball ball3;
 	public Level3() {
-		super();
 		ball.changeMove(7,7);
 		ball2.changeMove(7, 7);
 		ball3 = new Ball(7,7);
@@ -15,8 +14,13 @@ public class Level3 extends Level2 {
 		
 	}
 	
-	public void act() {
-		
+
+	@Override
+	public void act(long now) {
+		if(score.getScore() == 25) {
+			g.getLevel3().stop();
+			g.getBorderPane().setCenter(g.getGameOver());
+		}
 	}
 
 }
