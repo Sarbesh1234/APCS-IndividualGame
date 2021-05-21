@@ -6,6 +6,7 @@ public class BallWorld extends World {
 	public Score score;
 	public static Game g;
 	public Ball ball;
+	public Paddle paddle;
 	public BallWorld(Game g) {
 		this.g = g;
 		score = new Score();
@@ -15,7 +16,7 @@ public class BallWorld extends World {
 		
 		ball = new Ball(5,5);
 		Ball ball2 = new Ball(5,5);
-		Paddle paddle = new Paddle();
+		paddle = new Paddle();
 		ball.setFitWidth(25);
 		ball.setFitHeight(25);
 		ball2.setFitWidth(25);
@@ -55,7 +56,7 @@ public class BallWorld extends World {
 	}
 	@Override
 	public void act(long now) {
-		if(score.getScore() == 25) {
+		if(score.getScore() == 5) {
 			g.getBallWorld().stop();
 			g.getLevel2().start();
 			g.getBorderPane().setCenter(g.getLevel2());
@@ -65,5 +66,7 @@ public class BallWorld extends World {
 	public Score getScore() {
 		return score;
 	}
+	
+	
 	
 }

@@ -8,9 +8,13 @@ public class Paddle extends Actor {
 	
 	private double old = 0;
 	private double new2;
+	private int r;
+	private int l;
 
 	public Paddle() {
 		setImage(new Image(getClass().getClassLoader().getResource("resources/paddle.png").toString()));
+		r = 10;
+		l = 10;
 	}
 
 	@Override
@@ -18,12 +22,12 @@ public class Paddle extends Actor {
 		
 			if(getWorld().checkKey(KeyCode.LEFT)) {
 				if(getX()>10) {
-					this.setX(this.getX()-10);
+					this.setX(this.getX()-l);
 				}
 			}
 			if(getWorld().checkKey(KeyCode.RIGHT)) {
 				if(getX() + getWidth()<getWorld().getWidth()-10) {
-					this.setX(this.getX() + 10);
+					this.setX(this.getX() + r);
 				}
 			}
 			/*
@@ -82,6 +86,12 @@ public class Paddle extends Actor {
 			return true;
 		}
 		return false;
+	}
+	public void setR(int x) {
+		r = x;
+	}
+	public void setL(int y) {
+		l = y;
 	}
 
 }

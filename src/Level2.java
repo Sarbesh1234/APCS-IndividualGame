@@ -11,6 +11,7 @@ public class Level2 extends BallWorld {
 		ball2.setFitHeight(25);
 		ball2.setX(70);
 		add(ball2);
+		
 	}
 	
 	public void act(long now) {
@@ -22,6 +23,16 @@ public class Level2 extends BallWorld {
 			g.getLevel3().requestFocus();
 			
 		}
+		int r2 =  (int) ((int) (Math.random() * ball.getWorld().getWidth()-getWidth()) + getWidth());
+		int r = (int) (Math.random() * 299) + 1;
+		if(r == 5) {
+			Power p1 = new Power(0,5);
+			p1.setX(r2);
+			p1.setFitWidth(25);
+			p1.setFitHeight(25);
+			add(p1);
+		}
+		
 	}
 	
 	
