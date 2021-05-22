@@ -30,6 +30,13 @@ public class Paddle extends Actor {
 					this.setX(this.getX() + r);
 				}
 			}
+			if(getOneIntersectingObject(Power.class)!=null) {
+				Power p = getOneIntersectingObject(Power.class);
+				r +=1;
+				l +=1;
+			}else {
+				
+			}
 			/*
 			if(getWorld().checkKey(KeyCode.UP)) {
 				if(getY()>10) {

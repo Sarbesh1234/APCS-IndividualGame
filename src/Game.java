@@ -15,6 +15,7 @@ public class Game extends Application {
 	BallWorld world;
 	BorderPane rootNode;
 	GameOver g;
+	private int size;
 	public Game() {
 		
 	}
@@ -23,12 +24,13 @@ public class Game extends Application {
 	}
 	@Override
 	public void start(Stage stage) throws Exception {
+		size = 500;
 		stage.setTitle("BallBounce");
 		Menu menu = new Menu(this);
 		g = new GameOver();
 		rootNode = new BorderPane();
 		rootNode.setCenter(menu);
-		scene = new Scene(rootNode,500,500);
+		scene = new Scene(rootNode,size,size);
 		stage.setScene(scene);
 		stage.show();
 		world = new BallWorld(this);
@@ -73,6 +75,9 @@ public class Game extends Application {
 	
 	public BallWorld getBallWorld() {
 		return world;
+	}
+	public int returnSize() {
+		return size;
 	}
 	
 	

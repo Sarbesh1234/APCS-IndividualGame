@@ -19,6 +19,12 @@ public class BallWorld extends World {
 		paddle = new Paddle();
 		ball.setFitWidth(25);
 		ball.setFitHeight(25);
+		//int rand = (int) ((int) (Math.random() * getWidth())+ball.getWidth());
+		//System.out.println(this.getWidth());
+		//System.out.println(ball.getWidth());
+		//System.out.println(rand);
+		int r2 =  (int) ((int) (Math.random() * g.returnSize()-getWidth()) + getWidth());
+		ball.setX(r2);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
 		ball2.setY(30);
@@ -53,10 +59,11 @@ public class BallWorld extends World {
 				removeKey(event.getCode());
 			}
 		});
+		
 	}
 	@Override
 	public void act(long now) {
-		if(score.getScore() == 5) {
+		if(score.getScore() == 10) {
 			g.getBallWorld().stop();
 			g.getLevel2().start();
 			g.getBorderPane().setCenter(g.getLevel2());

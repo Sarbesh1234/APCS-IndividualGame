@@ -9,13 +9,14 @@ public class Level2 extends BallWorld {
 		ball2 = new Ball(6,6);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
-		ball2.setX(70);
+		int r2 =  (int) ((int) (Math.random() * g.returnSize()-getWidth()) + getWidth());
+		ball2.setX(r2);
 		add(ball2);
 		
 	}
 	
 	public void act(long now) {
-		if(score.getScore() == 25) {
+		if(score.getScore() == 10) {
 			g.getLevel2().stop();
 			System.out.println("hello");
 			g.getLevel3().start();

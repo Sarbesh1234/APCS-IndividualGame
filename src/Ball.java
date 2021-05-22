@@ -29,8 +29,11 @@ public class Ball extends Actor{
 		
 		if(getY() > getWorld().getHeight()-getHeight()) {
 			dy = -dy;
+			
 			BallWorld w = (BallWorld)getWorld();
-			w.getScore().setScore(w.getScore().getScore()-1);
+			if(w.getScore().getScore()>0) {
+				w.getScore().setScore(w.getScore().getScore()-1);
+			}
 		}
 		if (getY()<0) {
 			dy = -dy;
