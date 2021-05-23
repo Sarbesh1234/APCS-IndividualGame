@@ -5,7 +5,7 @@ public class Score extends Text {
 
 	private int score;
 	public Score() {
-		score = 1;
+		score = 11;
 		this.setFont(new Font(30));
 		updateDisplay();
 	}

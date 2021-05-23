@@ -32,7 +32,7 @@ public class Ball extends Actor{
 			
 			BallWorld w = (BallWorld)getWorld();
 			if(w.getScore().getScore()>0) {
-				w.getScore().setScore(w.getScore().getScore()-1);
+				w.getScore().setScore(w.getScore().getScore()-2);
 			}
 		}
 		if (getY()<0) {

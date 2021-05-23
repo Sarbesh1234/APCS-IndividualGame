@@ -9,20 +9,24 @@ public class Level2 extends BallWorld {
 		ball2 = new Ball(6,6);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
-		int r2 =  (int) ((int) (Math.random() * g.returnSize()-getWidth()) + getWidth());
+		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth())) + ball.getWidth());
 		ball2.setX(r2);
 		add(ball2);
 		
 	}
 	
 	public void act(long now) {
-		if(score.getScore() == 10) {
+		if(score.getScore() == 25) {
 			g.getLevel2().stop();
 			System.out.println("hello");
 			g.getLevel3().start();
 			g.getBorderPane().setCenter(g.getLevel3());
 			g.getLevel3().requestFocus();
 			
+		}
+		if(score.getScore() == 0) {
+			g.getLevel2().stop();
+			g.getBorderPane().setCenter(g.getGameOver());
 		}
 		int r2 =  (int) ((int) (Math.random() * ball.getWorld().getWidth()-getWidth()) + getWidth());
 		int r = (int) (Math.random() * 299) + 1;
