@@ -1,12 +1,12 @@
 import javafx.scene.image.Image;
 
-public class Power extends Actor {
+public class Power2 extends Actor {
 	private int dx;
 	private int dy;
-	public Power(int dx,int dy) {
+	public Power2(int dx,int dy) {
 		this.dx = dx;
 		this.dy = dy;
-		setImage(new Image(getClass().getClassLoader().getResource("resources/green.png").toString()));
+		setImage(new Image(getClass().getClassLoader().getResource("resources/red.png").toString()));
 	}
 
 	@Override

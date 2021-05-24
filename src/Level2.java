@@ -9,7 +9,7 @@ public class Level2 extends BallWorld {
 		ball2 = new Ball(6,6);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
-		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth())) + ball.getWidth());
+		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth()*2)) + ball.getWidth()*2);
 		ball2.setX(r2);
 		add(ball2);
 		
@@ -24,7 +24,7 @@ public class Level2 extends BallWorld {
 			g.getLevel3().requestFocus();
 			
 		}
-		if(score.getScore() == 0) {
+		if(score.getScore() <= 0) {
 			g.getLevel2().stop();
 			g.getBorderPane().setCenter(g.getGameOver());
 		}
@@ -36,6 +36,14 @@ public class Level2 extends BallWorld {
 			p1.setFitWidth(25);
 			p1.setFitHeight(25);
 			add(p1);
+		}
+		r = (int) (Math.random() * 199) + 1;
+		if(r == 5) {
+			Power p2 = new Power(0,5);
+			p2.setX(r2);
+			p2.setFitWidth(25);
+			p2.setFitHeight(25);
+			add(p2);
 		}
 		
 	}

@@ -23,7 +23,7 @@ public class BallWorld extends World {
 		//System.out.println(this.getWidth());
 		//System.out.println(ball.getWidth());
 		//System.out.println(rand);
-		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth())) + ball.getWidth());
+		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth()*2)) + ball.getWidth()*2);
 		//System.out.println(g.returnSize());
 		//System.out.println(ball.getWidth());
 		//System.out.println(r2);
@@ -72,7 +72,7 @@ public class BallWorld extends World {
 			g.getBorderPane().setCenter(g.getLevel2());
 			g.getLevel2().requestFocus();
 		}
-		if(score.getScore() == 0) {
+		if(score.getScore() <= 0) {
 			g.getBallWorld().stop();
 			g.getBorderPane().setCenter(g.getGameOver());
 		}

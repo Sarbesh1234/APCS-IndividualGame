@@ -93,15 +93,17 @@ public class Ball extends Actor{
 				dy = -dy;
 			}else if(getOneIntersectingObject(Paddle.class) != null && paddleLeft(getOneIntersectingObject(Paddle.class)) && getOneIntersectingObject(Paddle.class).paddleMovingLeft() == true) {
 				dy = -dy;
-				dx = -1;
+				//dx = -1;
+				dx = -dx;
 			}else if(getOneIntersectingObject(Paddle.class) != null && paddleRight(getOneIntersectingObject(Paddle.class)) && getOneIntersectingObject(Paddle.class).paddleMovingRight() == true) {
 				dy = -dy;
-				dx =1;
+				//dx =1;
 			}else if(getOneIntersectingObject(Paddle.class) != null && paddleLeftEdge(getOneIntersectingObject(Paddle.class))) {
 				dx = -1;
+				dx=-dx;
 				dy = -dy;
 			}else if(getOneIntersectingObject(Paddle.class) != null && paddleRightEdge(getOneIntersectingObject(Paddle.class))) {
-				dx = 1;
+				//dx = 1;
 				dy = -dy;
 			}else {
 				dy = -dy;
