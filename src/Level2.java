@@ -16,7 +16,7 @@ public class Level2 extends BallWorld {
 	}
 	
 	public void act(long now) {
-		if(score.getScore() == 25) {
+		if(score.getScore() == 15) {
 			g.getLevel2().stop();
 			System.out.println("hello");
 			g.getLevel3().start();
@@ -36,14 +36,16 @@ public class Level2 extends BallWorld {
 			p1.setFitWidth(25);
 			p1.setFitHeight(25);
 			add(p1);
+			System.out.println("gu");
 		}
-		r = (int) (Math.random() * 199) + 1;
-		if(r == 5) {
-			Power p2 = new Power(0,5);
+		int r3 = (int) (Math.random() * 199) + 1;
+		if(r3 == 5) {
+			Power2 p2 = new Power2(0,5);
 			p2.setX(r2);
 			p2.setFitWidth(25);
 			p2.setFitHeight(25);
 			add(p2);
+			System.out.println("ga");
 		}
 		
 	}

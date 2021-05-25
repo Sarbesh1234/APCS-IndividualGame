@@ -66,7 +66,7 @@ public class BallWorld extends World {
 	}
 	@Override
 	public void act(long now) {
-		if(score.getScore() == 25) {
+		if(score.getScore() == 15) {
 			g.getBallWorld().stop();
 			g.getLevel2().start();
 			g.getBorderPane().setCenter(g.getLevel2());
