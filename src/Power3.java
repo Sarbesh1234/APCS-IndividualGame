@@ -1,9 +1,9 @@
 import javafx.scene.image.Image;
 
-public class Gold extends Actor {
+public class Power3 extends Actor {
 	private int dx;
 	private int dy;
-	public Gold(int dx,int dy) {
+	public Power3(int dx,int dy) {
 		this.dx = dx;
 		this.dy = dy;
 		setImage(new Image(getClass().getClassLoader().getResource("resources/gold.png").toString()));

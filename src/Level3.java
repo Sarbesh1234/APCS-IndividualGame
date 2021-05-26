@@ -36,14 +36,16 @@ public class Level3 extends Level2 {
 			p1.setFitHeight(25);
 			add(p1);
 		}
-		if(r == 5) {
-			Power p1 = new Power(0,5);
-			p1.setX(r2);
-			p1.setFitWidth(25);
-			p1.setFitHeight(25);
-			add(p1);
-			System.out.println("gu");
+		int r4 = (int) (Math.random() * 199) + 1; //generates number from 1 to 200
+		
+		if(r4==10) {
+			Power3 gold = new Power3(0,5);
+			gold.setFitWidth(25);
+			gold.setFitHeight(25);
+			gold.setX(r2);
+			add(gold);
 		}
+		
 		int r3 = (int) (Math.random() * 199) + 1;
 		if(r3 == 5) {
 			Power2 p2 = new Power2(0,5);
@@ -53,14 +55,7 @@ public class Level3 extends Level2 {
 			add(p2);
 			System.out.println("ga");
 		}
-		r = (int) (Math.random() * 199) + 1;
-		if(r==5) {
-			Gold g = new Gold(0,8);
-			g.setX(r2);
-			//g.setFitWidth(5);
-			//g.setFitWidth(5);
-			add(g);
-		}
+		
 	}
 
 }

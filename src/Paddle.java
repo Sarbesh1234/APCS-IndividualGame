@@ -40,6 +40,10 @@ public class Paddle extends Actor {
 				r-=1;
 				l-=1;
 			}
+			if(getOneIntersectingObject(Power3.class)!=null) {
+				Level3 w = (Level3)getWorld();
+				w.getScore().setScore(w.getScore().getScore()+5);
+			}
 			/*
 			if(getWorld().checkKey(KeyCode.UP)) {
 				if(getY()>10) {
