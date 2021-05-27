@@ -7,12 +7,18 @@ public class BallWorld extends World {
 	public static Game g;
 	public Ball ball;
 	public Paddle paddle;
+	public Text2 txt;
 	public BallWorld(Game g) {
 		this.g = g;
 		score = new Score();
 		score.setX(50);
 		score.setY(50);
+		txt = new Text2("Level 1", 30);
+		txt.setX(50);
+		txt.setY(100);
+		
 		getChildren().add(score);
+		getChildren().add(txt);
 		
 		ball = new Ball(5,5);
 		Ball ball2 = new Ball(5,5);
@@ -23,7 +29,7 @@ public class BallWorld extends World {
 		//System.out.println(this.getWidth());
 		//System.out.println(ball.getWidth());
 		//System.out.println(rand);
-		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth()*2)) + ball.getWidth()*2);
+		int r2 =  (int) (Math.random() * (g.returnSize()-ball.getWidth()));
 		//System.out.println(g.returnSize());
 		//System.out.println(ball.getWidth());
 		//System.out.println(r2);

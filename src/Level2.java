@@ -5,11 +5,12 @@ public class Level2 extends BallWorld {
 	public Ball ball2;
 	public Level2() {
 		super(g2);
+		txt.setText("Level 2");
 		ball.changeMove(6, 6);
 		ball2 = new Ball(6,6);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
-		int r2 =  (int) ((Math.random() * (g.returnSize()-ball.getWidth()*2)) + ball.getWidth()*2);
+		int r2 =  (int) (Math.random() * (g.returnSize()-ball.getWidth()));
 		ball2.setX(r2);
 		add(ball2);
 		
