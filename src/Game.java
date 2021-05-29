@@ -28,6 +28,7 @@ public class Game extends Application {
 		size = 500;
 		stage.setTitle("BallBounce");
 		Menu menu = new Menu(this);
+		
 		g = new GameOver();
 		w = new Win();
 		rootNode = new BorderPane();
