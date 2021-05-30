@@ -36,6 +36,7 @@ public class Menu extends BorderPane {
 		t.setFill(Color.RED);
 		fade.setNode(t);
 		fade.play();
+		//fade circle
 		try {
 			Thread.sleep(10000);
 		}catch(Exception e) {
