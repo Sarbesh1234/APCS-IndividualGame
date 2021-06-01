@@ -11,12 +11,13 @@ public class BallWorld extends World {
 	public BallWorld(Game g) {
 		this.g = g;
 		score = new Score();
+		score.setNum(50);
 		score.setX(50);
 		score.setY(50);
 		txt = new Text2("Level 1", 30);
 		txt.setX(50);
 		txt.setY(100);
-		
+		score.setScore(26);
 		getChildren().add(score);
 		getChildren().add(txt);
 		
@@ -72,7 +73,7 @@ public class BallWorld extends World {
 	}
 	@Override
 	public void act(long now) {
-		if(score.getScore() == 15) {
+		if(score.getScore() >= 50) {
 			g.getBallWorld().stop();
 			g.getLevel2().start();
 			g.getBorderPane().setCenter(g.getLevel2());

@@ -5,6 +5,9 @@ public class Level2 extends BallWorld {
 	public Ball ball2;
 	public Level2() {
 		super(g2);
+		score.setScore(51);
+		score.setText(Integer.toString(score.getScore()) + "/100");
+		score.setNum(100);
 		txt.setText("Level 2");
 		ball.changeMove(6, 6);
 		ball2 = new Ball(6,6);
@@ -17,7 +20,7 @@ public class Level2 extends BallWorld {
 	}
 	
 	public void act(long now) {
-		if(score.getScore() == 15) {
+		if(score.getScore() >= 100) {
 			g.getLevel2().stop();
 			System.out.println("hello");
 			g.getLevel3().start();

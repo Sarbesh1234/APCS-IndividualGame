@@ -5,6 +5,9 @@ public class Level3 extends Level2 {
 	Ball ball3;
 	public Level3() {
 		txt.setText("Level 3");
+		score.setScore(101);
+		score.setText(Integer.toString(score.getScore()) + "/150");
+		score.setNum(100);
 		ball.changeMove(7,7);
 		ball2.changeMove(7, 7);
 		ball3 = new Ball(7,7);
@@ -19,7 +22,7 @@ public class Level3 extends Level2 {
 
 	@Override
 	public void act(long now) {
-		if(score.getScore() >= 25) {
+		if(score.getScore() >= 150) {
 			g.getLevel3().stop();
 			g.getBorderPane().setCenter(g.getWinScreen());
 		}
