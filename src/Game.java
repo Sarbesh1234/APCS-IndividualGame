@@ -16,6 +16,7 @@ public class Game extends Application {
 	BorderPane rootNode;
 	GameOver g;
 	Win w;
+	Menu menu;
 	private int size;
 	public Game() {
 		
@@ -27,8 +28,7 @@ public class Game extends Application {
 	public void start(Stage stage) throws Exception {
 		size = 500;
 		stage.setTitle("BallBounce");
-		Menu menu = new Menu(this);
-		
+		menu = new Menu(this);
 		g = new GameOver();
 		w = new Win();
 		rootNode = new BorderPane();
@@ -39,7 +39,7 @@ public class Game extends Application {
 		world = new BallWorld(this);
 		lvl2 = new Level2();
 		lvl3 = new Level3();
-		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		/*scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.ENTER) {
@@ -51,10 +51,14 @@ public class Game extends Application {
 				}
 				
 			}
-		});
+		});*/
 		
 		
 		
+	}
+	
+	public Menu getMenu() {
+		return menu;
 	}
 	
 	public Scene getScene() {

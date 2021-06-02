@@ -60,6 +60,12 @@ public class Level3 extends Level2 {
 			System.out.println("ga");
 		}
 		
+		getMenuButton().setOnAction(e -> {
+			Menu m = new Menu(g);
+			g.getLevel3().stop();
+			g.getScene().setRoot(m);
+		});
+		
 	}
 
 }

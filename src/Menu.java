@@ -4,8 +4,12 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -19,6 +23,7 @@ public class Menu extends BorderPane {
 	private Button b;
 	//private Thread t;
 	private Text t;
+	private Help help;
 	public Menu(Game game) {
 		this.game = game;
 		keys = new HashSet<KeyCode>();
@@ -26,11 +31,16 @@ public class Menu extends BorderPane {
 		t.setFont(new Font(30));
 		setCenter(t);
 		Button b = new Button("Help");
+		CheckBox b2 = new CheckBox("Music");
+		
 		b.setOnAction(e -> {
-			Help help = new Help(game);
+			help = new Help(game);
 			getScene().setRoot(help.getRootPane());
+			
 		});
-		setTop(b);
+		HBox box = new HBox();
+		box.getChildren().addAll(b,b2);
+		setTop(box);
 		FadeTransition fade = new FadeTransition();
 		fade.setDuration(Duration.millis(1000));
 		fade.setFromValue(10);
@@ -41,9 +51,28 @@ public class Menu extends BorderPane {
 		fade.setNode(t);
 		fade.play();
 		
+		setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override
+			public void handle(KeyEvent event) {
+				if(event.getCode() == KeyCode.ENTER) {
+
+					BallWorld world = game.getBallWorld();
+					world.start();
+					game.getScene().setRoot(world);
+					//world.start();
+					//game.getBorderPane().setCenter(world);
+					//stage.setScene(scene);
+					//stage.show();
+					//world.requestFocus();
+					System.out.println("hit space");
+				}
+				
+			}
+		});
+		
 		
 	}
-	
+	/*
 	public void setSpecialText() {
 		FadeTransition fade = new FadeTransition();
 		fade.setDuration(Duration.millis(3000));
@@ -61,7 +90,7 @@ public class Menu extends BorderPane {
 			
 		}
 		fade.stop();
-	}
+	}*/
 	
 	public void addKey(KeyCode k) {
 		keys.add(k);

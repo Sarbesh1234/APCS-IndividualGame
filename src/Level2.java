@@ -52,6 +52,12 @@ public class Level2 extends BallWorld {
 			System.out.println("ga");
 		}
 		
+		getMenuButton().setOnAction(e -> {
+			Menu m = new Menu(g);
+			g.getLevel2().stop();
+			g.getScene().setRoot(m);
+		});
+		
 	}
 	
 	

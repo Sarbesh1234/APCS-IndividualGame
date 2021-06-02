@@ -1,4 +1,5 @@
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -8,6 +9,7 @@ public class BallWorld extends World {
 	public Ball ball;
 	public Paddle paddle;
 	public Text2 txt;
+	private Button b;
 	public BallWorld(Game g) {
 		this.g = g;
 		score = new Score();
@@ -20,7 +22,10 @@ public class BallWorld extends World {
 		score.setScore(26);
 		getChildren().add(score);
 		getChildren().add(txt);
-		
+		b = new Button("Main Menu");
+		b.setLayoutX(420);
+		b.setLayoutY(0);
+		getChildren().add(b);
 		ball = new Ball(5,5);
 		Ball ball2 = new Ball(5,5);
 		paddle = new Paddle();
@@ -45,12 +50,13 @@ public class BallWorld extends World {
 		Brick brick = new Brick();
 		brick.setFitWidth(100);
 		brick.setFitHeight(100);
-		brick.setX(200);
-		brick.setY(200);
+		brick.setX(0);
+		brick.setY(0);
 		//add(brick);
 		add(ball);
 		//add(ball2);
 		add(paddle);
+		//g.getBorderPane().setRight(b);
 		/*this.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -83,6 +89,15 @@ public class BallWorld extends World {
 			g.getBallWorld().stop();
 			g.getBorderPane().setCenter(g.getGameOver());
 		}
+		b.setOnAction(e -> {
+			g.getBallWorld().stop();
+			Menu m = new Menu(g);
+			g.getScene().setRoot(m);
+		});
+	}
+	
+	public Button getMenuButton() {
+		return b;
 	}
 	public Score getScore() {
 		return score;
