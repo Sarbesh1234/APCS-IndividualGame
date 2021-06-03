@@ -13,29 +13,37 @@ public class Level2 extends BallWorld {
 		ball2 = new Ball(6,6);
 		ball2.setFitWidth(25);
 		ball2.setFitHeight(25);
-		int r2 =  (int) (Math.random() * (g.returnSize()-ball.getWidth()));
+		int r2 =  (int) (Math.random() * (g.getSize()-ball.getWidth()));
 		ball2.setX(r2);
 		add(ball2);
 		
 	}
 	
 	public void act(long now) {
+		
 		if(score.getScore() >= 100) {
-			g.getLevel2().stop();
-			System.out.println("hello");
-			g.getLevel3().start();
-			g.getBorderPane().setCenter(g.getLevel3());
-			g.getLevel3().requestFocus();
+			//g.getLevel2().stop();
+			//System.out.println("hello");
+			//g.getLevel3().start();
+			//g.getBorderPane().setCenter(g.getLevel3());
+			//g.getLevel3().requestFocus();
+			Game.getStage().setScene(g.getLevel3Scene());
+			g.getlvl2().stop();
+			g.getlvl3().start();
+			g.getlvl3().requestFocus();
 			
 		}
 		if(score.getScore() <= 0) {
-			g.getLevel2().stop();
-			g.getBorderPane().setCenter(g.getGameOver());
+			//g.getLevel2().stop();
+			//g.getBorderPane().setCenter(g.getGameOver());
+			
+			Game.getStage().setScene(g.getGameOverScene());
+			g.getlvl2().stop();
 		}
 		int r2 =  (int) ((int) (Math.random() * ball.getWorld().getWidth()-getWidth()) + getWidth());
 		int r = (int) (Math.random() * 299) + 1;
 		if(r == 5) {
-			Power p1 = new Power(0,5);
+			Power p1 = new Power(g,0,5);
 			p1.setX(r2);
 			p1.setFitWidth(25);
 			p1.setFitHeight(25);
@@ -44,7 +52,7 @@ public class Level2 extends BallWorld {
 		}
 		int r3 = (int) (Math.random() * 199) + 1;
 		if(r3 == 5) {
-			Power2 p2 = new Power2(0,5);
+			Power2 p2 = new Power2(g,0,5);
 			p2.setX(r2);
 			p2.setFitWidth(25);
 			p2.setFitHeight(25);
@@ -53,9 +61,9 @@ public class Level2 extends BallWorld {
 		}
 		
 		getMenuButton().setOnAction(e -> {
-			Menu m = new Menu(g);
-			g.getLevel2().stop();
-			g.getScene().setRoot(m);
+			Game.getStage().setScene(g.getMenuScene());
+			//g.getlvl1().getChildren().clear();
+			g.getlvl2().stop();
 		});
 		
 	}

@@ -2,6 +2,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class BallWorld extends World {
 	public Score score;
@@ -35,7 +37,7 @@ public class BallWorld extends World {
 		//System.out.println(this.getWidth());
 		//System.out.println(ball.getWidth());
 		//System.out.println(rand);
-		int r2 =  (int) (Math.random() * (g.returnSize()-ball.getWidth()));
+		int r2 =  (int) (Math.random() * (g.getSize()-ball.getWidth()));
 		//System.out.println(g.returnSize());
 		//System.out.println(ball.getWidth());
 		//System.out.println(r2);
@@ -77,22 +79,39 @@ public class BallWorld extends World {
 		});
 		
 	}
+	
+	
 	@Override
 	public void act(long now) {
 		if(score.getScore() >= 50) {
+			/*
 			g.getBallWorld().stop();
 			g.getLevel2().start();
 			g.getBorderPane().setCenter(g.getLevel2());
 			g.getLevel2().requestFocus();
+			*/
+			Game.getStage().setScene(g.getLevel2Scene());
+			g.getlvl1().stop();
+			g.getlvl2().start();
+			g.getlvl2().requestFocus();
 		}
-		if(score.getScore() <= 0) {
-			g.getBallWorld().stop();
-			g.getBorderPane().setCenter(g.getGameOver());
+		if(score.getScore() <= 20) {
+			/*g.getBallWorld().stop();
+			g.resetBorderPane();
+			GameOver go = new GameOver(g);
+			g.getScene().setRoot(go);
+			//g.getBorderPane().setCenter(g.getGameOver());*/
+			Game.getStage().setScene(g.getGameOverScene());
+			g.getlvl1().stop();
 		}
 		b.setOnAction(e -> {
-			g.getBallWorld().stop();
+			/*g.getBallWorld().stop();
 			Menu m = new Menu(g);
-			g.getScene().setRoot(m);
+			g.getScene().setRoot(m);*/
+			
+			Game.getStage().setScene(g.getMenuScene());
+			//g.getlvl1().getChildren().clear();
+			g.getlvl1().stop();
 		});
 	}
 	

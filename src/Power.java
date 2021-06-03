@@ -1,12 +1,17 @@
 import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 public class Power extends Actor {
 	private int dx;
 	private int dy;
-	public Power(int dx,int dy) {
+	private AudioClip explo;
+	private Game g;
+	public Power(Game g,int dx,int dy) {
+		this.g = g;
 		this.dx = dx;
 		this.dy = dy;
 		setImage(new Image(getClass().getClassLoader().getResource("resources/green.png").toString()));
+		explo = new AudioClip(getClass().getResource("resources/explo.mp3").toExternalForm());
 	}
 
 	@Override
@@ -17,6 +22,9 @@ public class Power extends Actor {
 			//a.setR(15);
 			//a.setL(15);
 			getWorld().remove(this);
+			if(g.getMusic()) {
+				explo.play();
+			}
 		}
 	}
 

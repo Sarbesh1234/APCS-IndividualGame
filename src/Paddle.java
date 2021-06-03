@@ -1,5 +1,8 @@
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class Paddle extends Actor {
 	
@@ -10,16 +13,23 @@ public class Paddle extends Actor {
 	private double new2;
 	private int r;
 	private int l;
+	private AudioClip explo;
 
 	public Paddle() {
 		setImage(new Image(getClass().getClassLoader().getResource("resources/paddle.png").toString()));
 		r = 10;
 		l = 10;
+		explo = new AudioClip(getClass().getResource("resources/explo.mp3").toExternalForm());
 	}
 
 	@Override
 	public void act(long now) {
+			
+			
 		
+			
+//			Media explo = new Media(getClass().getResource("resources/explo.mp3").toExternalForm());
+//			MediaPlayer mediaPlayer = new MediaPlayer(explo);
 			if(getWorld().checkKey(KeyCode.LEFT)) {
 				if(getX()>10) {
 					this.setX(this.getX()-l);
@@ -34,15 +44,18 @@ public class Paddle extends Actor {
 				Power p = getOneIntersectingObject(Power.class);
 				r +=1;
 				l +=1;
+				explo.play();
 			}
 			if(getOneIntersectingObject(Power2.class)!=null) {
 				//Power2 p = getOneIntersectingObject(Power2.class);
 				r-=1;
 				l-=1;
+				explo.play();
 			}
 			if(getOneIntersectingObject(Power3.class)!=null) {
 				Level3 w = (Level3)getWorld();
 				w.getScore().setScore(w.getScore().getScore()+5);
+				explo.play();
 			}
 			/*
 			if(getWorld().checkKey(KeyCode.UP)) {

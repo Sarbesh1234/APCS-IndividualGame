@@ -3,6 +3,7 @@ import java.util.HashSet;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
@@ -32,12 +33,29 @@ public class Menu extends BorderPane {
 		setCenter(t);
 		Button b = new Button("Help");
 		CheckBox b2 = new CheckBox("Music");
+		b2.setSelected(true);
+		b2.setOnAction(event -> {
+		    if (b2.isSelected()) {
+		        game.getMediaPlayer().play();
+		        game.setMusic(true);
+		    }else {
+		    	game.getMediaPlayer().pause();
+		    	game.setMusic(false);
+		    }
+		});
+		
 		
 		b.setOnAction(e -> {
-			help = new Help(game);
-			getScene().setRoot(help.getRootPane());
+			/*help = new Help(game);
+			game.resetBorderPane();
+			game.getBorderPane().setCenter(help.getRootPane());
+			//getScene().setRoot(help.getRootPane());
+			 * 
+			 */
+			Game.getStage().setScene(game.getHelpScene());
 			
 		});
+		
 		HBox box = new HBox();
 		box.getChildren().addAll(b,b2);
 		setTop(box);
@@ -51,12 +69,14 @@ public class Menu extends BorderPane {
 		fade.setNode(t);
 		fade.play();
 		
+		
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
 				if(event.getCode() == KeyCode.ENTER) {
-
-					BallWorld world = game.getBallWorld();
+					/*
+					//BallWorld world = game.getBallWorld();
+					BallWorld world = new BallWorld(game);
 					world.start();
 					game.getScene().setRoot(world);
 					//world.start();
@@ -65,6 +85,39 @@ public class Menu extends BorderPane {
 					//stage.show();
 					//world.requestFocus();
 					System.out.println("hit space");
+					*/
+					
+					//creation of level 1 scene
+					/*BallWorld b  = new BallWorld(game);
+					BorderPane lvl1Layout = new BorderPane();
+					lvl1Layout.setCenter(b);
+					Scene s = new Scene(lvl1Layout,game.getSize(),game.getSize());
+					game.setLevel1Scene(s);
+					b.score.setScore(26);*/
+//					
+//					//creation of level 2 scene
+//					Level2 lvl2  = new Level2();
+//					BorderPane lvl2Layout = new BorderPane();
+//					lvl2Layout.setCenter(lvl2);
+//					Scene s2 = new Scene(lvl2Layout,game.getSize(),game.getSize());
+//					game.setLevel1Scene(s2);
+//							
+//					//creation of level 3 scene
+//					Level3 lvl3  = new Level3();
+//					BorderPane lvl3Layout = new BorderPane();
+//					lvl3Layout.setCenter(lvl3);
+//					Scene s3 = new Scene(lvl3Layout,game.getSize(),game.getSize());
+//					game.setLevel1Scene(s3);
+//					
+					game.getlvl1().getScore().setScore(26);
+					game.getlvl2().getScore().setScore(51);
+					game.getlvl3().getScore().setScore(101);
+					Game.getStage().setScene(game.getLevel1Scene());
+					game.getlvl1().requestFocus();
+					game.getlvl1().start();
+					
+					//System.out.println("hello");
+					
 				}
 				
 			}
